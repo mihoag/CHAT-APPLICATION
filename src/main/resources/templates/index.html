@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Spring Boot WebSocket Chat Application</title>
+     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+<body>
+
+ <section id="username-page" class="vh-100">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card" style="border-radius: 1rem">
+              <div class="card-body p-5 text-center">
+                <div class="mb-md-3 mt-md-4 pb-5">
+                 
+                  <h2 class="fw-bold mb-3 text-uppercase">
+                    Chọn ảnh và nhập tên để tham gia trò chuyện
+                  </h2>
+                 
+                
+                
+                
+                <div class="row my-3 d-flex justify-content-center align-items-center">
+                  <img style="width: 30%" onclick="handleClickImage(this)" class="img-responsive" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp" alt="Chania">
+                  <img style="width: 30%"  onclick="handleClickImage(this)"  class="img-responsive" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp" alt="Chania">
+                  <img style="width: 30%"  onclick="handleClickImage(this)"  class="img-responsive" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3-bg.webp" alt="Chania">
+                 </div>
+                  <div class="row  my-3  d-flex justify-content-center align-items-center">
+                  <img style="width: 30%"  onclick="handleClickImage(this)"  class="img-responsive" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava4-bg.webp" alt="Chania">
+                  <img style="width: 30%"  onclick="handleClickImage(this)"  class="img-responsive" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava5-bg.webp" alt="Chania">
+                  <img style="width: 30%"  onclick="handleClickImage(this)"  class="img-responsive" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp" alt="Chania">
+                 </div>
+      
+       
+                  <br />
+                  <br />
+                  <form id="usernameForm" name="usernameForm">
+                    <div
+                      data-mdb-input-init
+                      class="form-outline form-white mb-4"
+                    >
+                      <input
+                        type="text"
+                        id="name"
+                        placeholder="Nhập tên của bạn"
+                        class="form-control form-control-lg"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      class="btn btn-info"
+                      data-mdb-ripple-init
+                    >
+                      THAM GIA
+                    </button>
+                  </form>
+                </div>
+
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+ <div id="chat-page" class="container hidden" style="margin-top: 2px; ">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-8 col-lg-12 col-xl-8">
+          <div class="card">
+            <div
+              class="card-header d-flex justify-content-between align-items-center p-3"
+              style="border-top: 4px solid #ffa900"
+            >
+              <h5 class="mb-0">Kênh chat chung</h5>
+            </div>
+            <div
+              class="card-body"
+              id="messageArea"
+              data-mdb-perfect-scrollbar="true"
+              style="position: relative; height: 450px; overflow: scroll"
+            >
+              </div>
+            </div>
+            <div
+              class="card-footer text-muted d-flex justify-content-start align-items-center p-3"
+            >
+
+              <div class="input-group mb-0">
+              
+                <input id="message"  
+                  type="text"
+                  class="form-control"
+                  placeholder="Nhập tin nhắn"
+                  aria-label="Recipient's username"
+                  aria-describedby="button-addon2"
+                />
+                <button id="btnSend"
+                  data-mdb-button-init
+                  data-mdb-ripple-init
+                  class="btn btn-warning"
+                  type="button"
+           
+                  style="padding-top: 0.55rem"
+                >
+                  Gửi
+                </button>
+               
+              </div>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
